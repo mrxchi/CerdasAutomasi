@@ -6,42 +6,68 @@
 <title>CerdasAutomasi - Biar Bisnismu Ga Ribet</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
+/* RESET & BASE */
 * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
 body { font-family:'Roboto', sans-serif; background:#ffffff; color:#333; line-height:1.6; }
 a { text-decoration:none; color:inherit; }
-button { cursor:pointer; }
+button, a.btn-wa { cursor:pointer; }
 
 /* HEADER */
-header { position:sticky; top:0; z-index:1000; background:#ffffff; padding:1rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:0.3s; border-bottom-left-radius:12px; border-bottom-right-radius:12px; }
+header { position:sticky; top:0; z-index:1000; background:#ffffff; padding:1rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:0.3s; }
 header.scrolled { background:#E3F2FD; }
-nav { display:flex; justify-content:space-between; align-items:center; }
+nav { display:flex; justify-content:space-between; align-items:center; position:relative; }
 nav ul { list-style:none; display:flex; gap:1.5rem; }
 nav ul li a { font-weight:500; transition:0.3s; }
 nav ul li a:hover { color:#1A73E8; }
 
-/* HERO */
-.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background: linear-gradient(120deg,#E3F2FD,#ffffff); border-radius:16px; margin:2rem auto; max-width:1200px; }
+/* HAMBURGER */
+.hamburger { display:none; font-size:2rem; cursor:pointer; }
+.nav-links {
+  display:flex;
+  list-style:none;
+}
+@media(max-width:768px){
+  .hamburger { display:block; color:#1A73E8; }
+  .nav-links { 
+    position:fixed; top:0; left:0; width:100%; height:100%; 
+    background:rgba(255,255,255,0.97); 
+    flex-direction:column; justify-content:center; align-items:center; 
+    gap:2rem; font-size:1.5rem;
+    transform:translateX(-100%); transition:transform 0.3s ease-in-out; z-index:9999;
+  }
+  .nav-links.active { transform:translateX(0); }
+  .nav-links li a { font-size:1.5rem; }
+}
+
+/* HERO FULLSCREEN */
+.hero {
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  min-height:100vh; padding:2rem; background: linear-gradient(120deg,#E3F2FD,#ffffff);
+  position:relative; overflow:hidden;
+}
 .hero h1 { font-family:'Poppins', sans-serif; font-size:3rem; color:#1A73E8; margin-bottom:1rem; }
 .hero p { font-size:1.2rem; color:#5f6368; margin-bottom:2rem; max-width:700px; }
-.hero .btn { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; transition:0.3s; border:none; }
-.hero .btn:hover { background:#155ab6; transform:translateY(-3px); }
+.hero a.btn-wa { display:inline-block; padding:0.8rem 2rem; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; font-weight:600; border-radius:12px; text-align:center; transition:all 0.3s ease; box-shadow:0 6px 12px rgba(0,0,0,0.1); }
+.hero a.btn-wa:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 8px 16px rgba(0,0,0,0.15); }
 
 /* FEATURES */
-.features-section { background:#F0F8FF; padding:4rem 2rem; }
-.features-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; }
-.features-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
-.features { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:1200px; margin:auto; }
-.feature-item { background:#ffffff; flex:1 1 250px; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); text-align:center; transition:transform 0.3s; }
+.features-section { background:#F0F8FF; padding:6rem 2rem; position:relative; overflow:hidden; }
+.features-section::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="%23E3F2FD" fill-opacity="0.1"/></svg>'); background-repeat:repeat; z-index:0; }
+.features-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; position:relative; z-index:1; }
+.features-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; position:relative; z-index:1; }
+.features { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:1200px; margin:auto; position:relative; z-index:1; }
+.feature-item { background:#ffffff; flex:1 1 250px; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); text-align:center; transition:transform 0.3s; position:relative; z-index:1; }
 .feature-item:hover { transform:translateY(-5px); }
 .feature-item span { font-size:3rem; display:block; margin-bottom:1rem; }
 .feature-item h3 { font-family:'Poppins', sans-serif; font-size:1.5rem; color:#1A73E8; margin-bottom:0.5rem; }
 .feature-item p { color:#5f6368; font-size:1rem; }
 
 /* TIMELINE */
-.timeline-section { padding:4rem 2rem; max-width:1200px; margin:auto; }
-.timeline-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; }
-.timeline-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
-.timeline { position:relative; margin:auto; padding:2rem 0; }
+.timeline-section { padding:6rem 2rem; max-width:1200px; margin:auto; position:relative; overflow:hidden; }
+.timeline-section::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="50" fill="%23F0F8FF" fill-opacity="0.15"/></svg>'); background-repeat:repeat; z-index:0; }
+.timeline-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; position:relative; z-index:1; }
+.timeline-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; position:relative; z-index:1; }
+.timeline { position:relative; margin:auto; padding:2rem 0; position:relative; z-index:1; }
 .timeline::before { content:""; position:absolute; top:0; left:50%; width:4px; height:100%; background:#1A73E8; transform:translateX(-50%); border-radius:2px; }
 .timeline-item { position:relative; width:50%; padding:2rem; }
 .timeline-item.left { left:0; text-align:right; }
@@ -51,36 +77,42 @@ nav ul li a:hover { color:#1A73E8; }
 .timeline-item p { color:#5f6368; }
 
 /* IMPLEMENTASI */
-.implement-section { padding:4rem 2rem; background:#FFF9E6; }
-.implement-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#F57C00; font-size:2rem; margin-bottom:0.5rem; }
-.implement-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
-.implement-items { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:1200px; margin:auto; }
-.implement-item { background:#ffffff; flex:1 1 300px; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); transition:transform 0.3s; text-align:left; }
+.implement-section { padding:6rem 2rem; background:#FFF9E6; position:relative; overflow:hidden; }
+.implement-section::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="%23FFF9E6" fill-opacity="0.1"/></svg>'); background-repeat:repeat; z-index:0; }
+.implement-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#F57C00; font-size:2rem; margin-bottom:0.5rem; position:relative; z-index:1; }
+.implement-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; position:relative; z-index:1; }
+.implement-items { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:1200px; margin:auto; position:relative; z-index:1; }
+.implement-item { background:#ffffff; flex:1 1 300px; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); transition:transform 0.3s; text-align:left; position:relative; z-index:1; }
 .implement-item:hover { transform:translateY(-3px); }
 .implement-item span { font-size:2.5rem; margin-bottom:0.5rem; display:block; }
 .implement-item h3 { font-family:'Poppins', sans-serif; color:#F57C00; margin-bottom:0.5rem; }
 .implement-item p { color:#5f6368; font-size:1rem; }
 
 /* FAQ */
-.faq-section { padding:4rem 2rem; background:#E8F5E9; }
-.faq-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#2E7D32; font-size:2rem; margin-bottom:0.5rem; }
-.faq-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
-.faq-item { background:#ffffff; padding:1.5rem; border-radius:12px; margin-bottom:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.05); cursor:pointer; transition:0.3s; }
+.faq-section { padding:6rem 2rem; background:#E8F5E9; position:relative; overflow:hidden; }
+.faq-section::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="%232E7D32" fill-opacity="0.05"/></svg>'); background-repeat:repeat; z-index:0; }
+.faq-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#2E7D32; font-size:2rem; margin-bottom:0.5rem; position:relative; z-index:1; }
+.faq-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; position:relative; z-index:1; }
+.faq-item { background:#ffffff; padding:1.5rem; border-radius:12px; margin-bottom:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.05); cursor:pointer; transition:0.3s; position:relative; z-index:1; }
 .faq-item:hover { transform:translateY(-2px); }
 .faq-item h3 { font-family:'Poppins', sans-serif; color:#2E7D32; margin-bottom:0.5rem; }
 .faq-item p { display:none; color:#5f6368; margin-top:0.5rem; }
 .faq-item.active p { display:block; }
 
 /* CTA */
-.cta { background:#1A73E8; color:#fff; text-align:center; padding:4rem 2rem; border-radius:16px; margin:4rem 2rem; }
-.cta h2 { font-family:'Poppins', sans-serif; font-size:2rem; margin-bottom:1rem; }
-.cta p { margin-bottom:2rem; }
+.cta { background:#1A73E8; color:#fff; text-align:center; padding:6rem 2rem; border-radius:16px; margin:4rem 2rem; position:relative; overflow:hidden; }
+.cta::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="%23FFFFFF" fill-opacity="0.05"/></svg>'); background-repeat:repeat; z-index:0; }
+.cta h2 { font-family:'Poppins', sans-serif; font-size:2rem; margin-bottom:1rem; position:relative; z-index:1; }
+.cta p { margin-bottom:2rem; position:relative; z-index:1; }
+.cta a.btn-wa { display:inline-block; padding:0.8rem 2rem; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; font-weight:600; border-radius:12px; text-align:center; transition:all 0.3s ease; box-shadow:0 6px 12px rgba(0,0,0,0.1); position:relative; z-index:1; }
+.cta a.btn-wa:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 8px 16px rgba(0,0,0,0.15); }
 
 /* CONTACT */
-.contact-section { padding:4rem 2rem; background:#F0F8FF; }
-.contact-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; }
-.contact-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
-.contact-form { max-width:600px; margin:auto; background:#ffffff; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); }
+.contact-section { padding:6rem 2rem; background:#F0F8FF; position:relative; overflow:hidden; }
+.contact-section::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="%23E3F2FD" fill-opacity="0.05"/></svg>'); background-repeat:repeat; z-index:0; }
+.contact-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; position:relative; z-index:1; }
+.contact-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; position:relative; z-index:1; }
+.contact-form { max-width:600px; margin:auto; background:#ffffff; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); position:relative; z-index:1; }
 .contact-form input, .contact-form textarea { width:100%; padding:0.8rem; margin-bottom:1rem; border-radius:12px; border:1px solid #ccc; font-size:1rem; }
 .contact-form button { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; border:none; cursor:pointer; transition:0.3s; }
 .contact-form button:hover { background:#155ab6; transform:translateY(-2px); }
@@ -92,60 +124,19 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 .fade-in { opacity:0; transform:translateY(20px); transition: all 0.8s ease-out; }
 .fade-in.visible { opacity:1; transform:translateY(0); }
 
+/* RESPONSIVE */
 @media(max-width:768px){
   .hero h1 { font-size:2rem; }
   .hero p { font-size:1rem; }
   .timeline::before { left:20px; height:100%; }
-  .timeline-item { width:100% !important; text-align:left !important; flex-direction:row !important; padding-left:3rem; padding-right:1rem; margin-bottom:2rem; }
-  .timeline-item.left, .timeline-item.right { left:0 !important; }
+  .timeline-item { width:100%; left:0; text-align:left; padding-left:50px; padding-right:1rem; margin-bottom:2rem; }
 }
-  .btn-wa {
-  display:inline-block;
-  padding:0.8rem 2rem;
-  background:linear-gradient(90deg,#25D366,#128C7E);
-  color:#fff;
-  font-weight:600;
-  border-radius:12px;
-  text-align:center;
-  transition:all 0.3s ease;
-  box-shadow:0 6px 12px rgba(0,0,0,0.1);
-}
-.btn-wa:hover {
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:0 8px 16px rgba(0,0,0,0.15);
-}
-  /* NAV BASE */
-nav { display:flex; justify-content:space-between; align-items:center; position:relative; }
-.nav-links { list-style:none; display:flex; gap:1.5rem; }
-.nav-links li a { font-weight:500; transition:0.3s; }
-.nav-links li a:hover { color:#1A73E8; }
-
-/* HAMBURGER */
-.hamburger { display:none; font-size:2rem; cursor:pointer; }
-
-/* MOBILE */
-@media(max-width:768px){
-  .nav-links { 
-    position:fixed; top:0; left:0; width:100%; height:100%; 
-    background:rgba(255,255,255,0.97); 
-    flex-direction:column; justify-content:center; align-items:center; 
-    gap:2rem; font-size:1.5rem;
-    transform:translateX(-100%); 
-    transition:transform 0.3s ease-in-out; 
-    z-index:9999;
-  }
-  .nav-links.active { transform:translateX(0); }
-  .hamburger { display:block; color:#1A73E8; }
-}
-
-
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header id="header">
-  <div class="container">
 <nav>
   <div class="logo"><strong>🤖 CerdasAutomasi</strong></div>
   <div class="hamburger" id="hamburger">&#9776;</div>
@@ -157,123 +148,110 @@ nav { display:flex; justify-content:space-between; align-items:center; position:
     <li><a href="#contact">Kontak</a></li>
   </ul>
 </nav>
-
-  </div>
 </header>
 
 <!-- HERO -->
 <section class="hero fade-in">
-  <h1>Biar Bisnismu Ga Ribet 🤖</h1>
-  <p>Pakai CerdasAutomasi, kerjaan yang biasanya bikin pusing bisa jalan sendiri. Hemat waktu, minim salah, dan tetap bisa ngopi santai ☕</p>
-  <a href="https://wa.me/6288293568958" target="_blank" class="btn-wa">Hubungi Kami via WA 📲</a>
-
+<h1>Biar Bisnismu Ga Ribet! 🤖</h1>
+<p>CerdasAutomasi bantu bisnis Indonesia otomatis, hemat waktu & bikin kerja lebih santai.</p>
+<a href="https://wa.me/6288293568958" target="_blank" class="btn-wa">Hubungi Kami via WA 📲</a>
 </section>
 
 <!-- FEATURES -->
-<section id="features" class="features-section">
-  <h2>Fitur Keren Kami 🚀</h2>
-  <p class="subtitle">Biar bisnis lancar, kerjaan otomatis, kamu bisa santai</p>
-  <div class="features">
-    <div class="feature-item fade-in"><span>📄</span><h3>Laporan Otomatis</h3><p>Laporan dikirim tiap hari tanpa kamu harus ketik satu-satu.</p></div>
-    <div class="feature-item fade-in"><span>📊</span><h3>Dashboard Real-Time</h3><p>Semua data penting terlihat langsung, ga perlu nunggu laporan manual.</p></div>
-    <div class="feature-item fade-in"><span>🔔</span><h3>Notifikasi Pintar</h3><p>Stok habis? Tagihan menumpuk? Sistem kasih tahu langsung!</p></div>
-    <div class="feature-item fade-in"><span>⚙️</span><h3>Integrasi Multi-Tools</h3><pPOS, spreadsheet, dan software lain bisa nyambung semua.</p></div>
-    <div class="feature-item fade-in"><span>🛠️</span><h3>Support & Maintenance</h3><p>Kami pantau & update sistem supaya selalu lancar.</p></div>
-  </div>
+<section class="features-section fade-in" id="features">
+<h2>Fitur Unggulan ✨</h2>
+<p class="subtitle">Solusi otomatisasi untuk semua jenis bisnis, mulai dari F&B, toko online, hingga kantor.</p>
+<div class="features">
+  <div class="feature-item"><span>⚡</span><h3>Otomatis Laporan</h3><p>Habis waktu bikin laporan? Biarkan kami yang handle, tinggal klik selesai!</p></div>
+  <div class="feature-item"><span>📊</span><h3>Dashboard Pintar</h3><pSemua data penting tersaji rapih & jelas, siap diintip kapan aja.</p></div>
+  <div class="feature-item"><span>🔔</span><h3>Notifikasi Real-time</h3><p>Tidak ada lagi telat info, semua update langsung masuk WA & email.</p></div>
+</div>
 </section>
 
 <!-- TIMELINE -->
-<section id="timeline" class="timeline-section">
-  <h2>Cara Kerja 🔄</h2>
-  <p class="subtitle">Cuma 4 langkah, bisnismu auto jalan sendiri</p>
-  <div class="timeline">
-    <div class="timeline-item left fade-in"><span>📝</span><h3>Konsultasi</h3><p>Kita ngobrol santai, cek apa yang dibutuhin bisnis kamu.</p></div>
-    <div class="timeline-item right fade-in"><span>⚙️</span><h3>Setup Workflow</h3><p>Sistem diatur sesuai kebutuhan, tanpa ribet.</p></div>
-    <div class="timeline-item left fade-in"><span>🚀</span><h3>Automasi Jalan</h3><p>Kerjaan yang biasanya bikin pusing sekarang jalan sendiri.</p></div>
-    <div class="timeline-item right fade-in"><span>💡</span><h3>Maintenance</h3><p>Update rutin, kalau ada error langsung beresin. Ga perlu panik 😎</p></div>
-  </div>
+<section class="timeline-section fade-in" id="timeline">
+<h2>Cara Kerja</h2>
+<p class="subtitle">Langkah simpel, bikin bisnis otomatis tanpa pusing!</p>
+<div class="timeline">
+  <div class="timeline-item left"><span>1️⃣</span><h3>Analisa</h3><p>Kita pelajari bisnis & proses kamu.</p></div>
+  <div class="timeline-item right"><span>2️⃣</span><h3>Rancang</h3><p>Buat workflow otomatis sesuai kebutuhan.</p></div>
+  <div class="timeline-item left"><span>3️⃣</span><h3>Implementasi</h3><p>Pasang sistem & training tim.</p></div>
+  <div class="timeline-item right"><span>4️⃣</span><h3>Monitoring</h3><p>Kita pastikan semua jalan lancar & update kalau perlu.</p></div>
+</div>
 </section>
 
 <!-- IMPLEMENTASI -->
-<section id="implement" class="implement-section">
-  <h2>Contoh Implementasi 💼</h2>
-  <p class="subtitle">Lihat bagaimana CerdasAutomasi bantu bisnis nyata</p>
-  <div class="implement-items">
-    <div class="implement-item fade-in"><span>🍔</span><h3>Restoran & F&B</h3><p>Stok bahan otomatis update, reminder order supplier, laporan penjualan otomatis tiap hari. Bosnya bisa tidur nyenyak 😴</p></div>
-    <div class="implement-item fade-in"><span>🛒</span><h3>Toko Online</h3><p>Update status order otomatis, kirim invoice via WhatsApp, dashboard penjualan realtime. No drama lagi 😎</p></div>
-    <div class="implement-item fade-in"><span>🏢</span><h3>Perusahaan / Kantor</h3><p>Automasi approval dokumen, reminder meeting & deadlines, integrasi tools internal. Jadi semua kerjaan ga numpuk.</p></div>
-  </div>
+<section class="implement-section fade-in" id="implement">
+<h2>Contoh Implementasi 🛠️</h2>
+<p class="subtitle">Contoh nyata agar mudah kebayang.</p>
+<div class="implement-items">
+  <div class="implement-item"><span>🍔</span><h3>F&B</h3><p>Otomatis stok bahan, order online terintegrasi, laporan penjualan siap tiap hari.</p></div>
+  <div class="implement-item"><span>🛒</span><h3>Toko Online</h3><p>Update produk otomatis, notifikasi order masuk WA, laporan harian & bulanan.</p></div>
+  <div class="implement-item"><span>🏢</span><h3>Kantor</h3><p>Workflow dokumen, absensi & reminder meeting otomatis, semua tim tetap on track.</p></div>
+</div>
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="faq-section">
-  <h2>FAQ ❓</h2>
-  <p class="subtitle">Pertanyaan yang sering muncul (dan jawaban yang ga bikin pusing)</p>
-  <div class="faq-item"><h3>Apakah semua workflow bisa otomatis?</h3><p>Kebanyakan bisa, tapi ada beberapa hal yang perlu setup manual awal. Tenang, kita bantu kok 😉</p></div>
-  <div class="faq-item"><h3>Perlu skill IT ga buat pakai ini?</h3><p>Nggak perlu sama sekali! Santai aja, kita buat semuanya mudah dan siap pakai.</p></div>
-  <div class="faq-item"><h3>Apakah aman data saya?</h3><p>Data kamu aman, tersimpan dengan enkripsi & hanya bisa diakses pihak berwenang.</p></div>
+<section class="faq-section fade-in" id="faq">
+<h2>FAQ ❓</h2>
+<p class="subtitle">Beberapa pertanyaan yang sering muncul (supaya ga pusing 😄)</p>
+<div class="faq-item">
+<h3>Berapa lama implementasinya?</h3>
+<p>Biasanya 1-3 minggu tergantung kompleksitas workflow bisnis kamu.</p>
+</div>
+<div class="faq-item">
+<h3>Apakah bisa untuk semua sektor?</h3>
+<p>Yep! Dari F&B, toko online, kantor, hingga manufaktur bisa diotomatisasi.</p>
+</div>
+<div class="faq-item">
+<h3>Apakah butuh tim IT sendiri?</h3>
+<p>Ga perlu! Kita training tim kamu, dan sistem siap jalan sendiri.</p>
+</div>
 </section>
 
 <!-- CTA -->
 <section class="cta fade-in">
-  <h2>Siap Biar Bisnismu Ga Ribet?</h2>
-  <p>Mulai workflow otomatis pertama kamu sekarang! Hemat waktu, minim salah, fokus ke ngopi ☕</p>
+<h2>Mau Bisnis Lebih Santai? 🌴</h2>
+<p>Hubungi kami sekarang & mulai workflow otomatisnya!</p>
+<a href="https://wa.me/6288293568958" target="_blank" class="btn-wa">Hubungi Kami via WA 📲</a>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <h2>Kontak Kami 📩</h2>
-  <p class="subtitle">Tanya-tanya, minta demo, atau sekedar ngobrol santai</p>
-  <div class="contact-form fade-in">
-    <form>
-      <input type="text" name="name" placeholder="Nama Kamu" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="company" placeholder="Nama Perusahaan / Bisnis" required>
-      <textarea name="message" placeholder="Pesan / Kebutuhan Workflow" rows="5" required></textarea>
-      <button type="submit">Kirim Pesan ✨</button>
-    </form>
-  </div>
+<section class="contact-section fade-in" id="contact">
+<h2>Kontak Kami 📞</h2>
+<p class="subtitle">Langsung chat ke WhatsApp atau isi form di bawah ini.</p>
+<div class="contact-form">
+<input type="text" placeholder="Nama Kamu">
+<input type="email" placeholder="Email Kamu">
+<textarea placeholder="Pesan Kamu" rows="4"></textarea>
+<button type="submit">Kirim Pesan</button>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2025 🤖 CerdasAutomasi. Semua hak dilindungi.</p>
+<p>© 2025 CerdasAutomasi - Biar Bisnismu Ga Ribet 😎</p>
 </footer>
 
+<!-- JS -->
 <script>
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold:0.3 };
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry => {
-    if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  if(window.scrollY > 50){ header.classList.add('scrolled'); } 
-  else { header.classList.remove('scrolled'); }
-});
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', ()=>{ navLinks.classList.toggle('active'); });
 
 // FAQ toggle
 const faqItems = document.querySelectorAll('.faq-item');
-faqItems.forEach(item => {
-  item.addEventListener('click', () => { item.classList.toggle('active'); });
-});
-</script>
-  <script>
-// Hamburger menu toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+faqItems.forEach(item => { item.addEventListener('click', ()=>{ item.classList.toggle('active'); }); });
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+// Scroll fade-in
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold:0.1, rootMargin:"0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver((entries, observer)=>{
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+}, appearOptions);
+faders.forEach(fader => { appearOnScroll.observe(fader); });
 </script>
-
 
 </body>
 </html>
