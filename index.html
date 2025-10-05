@@ -23,6 +23,7 @@ nav ul li a:hover { color:#1A73E8; }
 .hamburger { display:none; font-size:2rem; cursor:pointer; }
 .nav-links { display:flex; list-style:none; }
 @media(max-width:768px){
+  
   .hamburger { display:block; color:#1A73E8; }
   .nav-links { 
     position:fixed; top:0; left:0; width:100%; height:100%; 
@@ -122,9 +123,20 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 @media(max-width:768px){
   .hero h1 { font-size:2rem; }
   .hero p { font-size:1rem; }
-  .timeline::before { left:20px; height:100%; }
-  .timeline-item { width:100%; left:0; text-align:left; padding-left:50px; padding-right:1rem; margin-bottom:2rem; }
+
+  /* Timeline mobile: list vertikal */
+  .timeline::before { display:none; } /* hilangkan garis tengah */
+  .timeline-item {
+    width:100%;
+    left:0;
+    text-align:left;
+    padding-left:1rem;
+    padding-right:1rem;
+    margin-bottom:1.5rem;
+  }
+  .timeline-item.left, .timeline-item.right { left:0; text-align:left; }
 }
+
 </style>
 </head>
 <body>
