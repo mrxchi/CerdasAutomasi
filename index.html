@@ -97,7 +97,6 @@ nav ul li a:hover { color:#1A73E8; }
 
 /* CTA */
 .cta { background:#1A73E8; color:#fff; text-align:center; padding:6rem 2rem; border-radius:16px; margin:4rem 2rem; position:relative; overflow:hidden; }
-.cta::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="%23FFFFFF" fill-opacity="0.05"/></svg>'); background-repeat:repeat; z-index:0; }
 .cta h2 { font-family:'Poppins', sans-serif; font-size:2rem; margin-bottom:1rem; position:relative; z-index:1; }
 .cta p { margin-bottom:2rem; position:relative; z-index:1; }
 .cta a.btn-wa { display:inline-block; padding:0.8rem 2rem; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; font-weight:600; border-radius:12px; text-align:center; transition:all 0.3s ease; box-shadow:0 6px 12px rgba(0,0,0,0.1); position:relative; z-index:1; }
@@ -105,7 +104,6 @@ nav ul li a:hover { color:#1A73E8; }
 
 /* CONTACT */
 .contact-section { padding:6rem 2rem; background:#F0F8FF; position:relative; overflow:hidden; }
-.contact-section::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="%23E3F2FD" fill-opacity="0.05"/></svg>'); background-repeat:repeat; z-index:0; }
 .contact-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; position:relative; z-index:1; }
 .contact-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; position:relative; z-index:1; }
 .contact-form { max-width:600px; margin:auto; background:#ffffff; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); position:relative; z-index:1; }
@@ -156,11 +154,15 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 <!-- FEATURES -->
 <section class="features-section fade-in" id="features">
 <h2>Fitur Unggulan</h2>
-<p class="subtitle">Solusi otomatisasi untuk berbagai sektor bisnis.</p>
+<p class="subtitle">Solusi otomatisasi yang nyata dan siap diterapkan.</p>
 <div class="features">
-  <div class="feature-item"><span>⚡</span><h3>Otomatis Laporan</h3><p>Membuat laporan otomatis sesuai jadwal.</p></div>
-  <div class="feature-item"><span>📊</span><h3>Dashboard Pintar</h3><p>Menampilkan semua data bisnis secara real-time.</p></div>
-  <div class="feature-item"><span>🔔</span><h3>Notifikasi Real-time</h3><p>Update otomatis ke WA atau email untuk setiap aktivitas penting.</p></div>
+  <div class="feature-item"><span>⚡</span><h3>Otomatisasi Workflow</h3><p>Alur kerja otomatis: approval, reminder, follow-up sales, dan tugas rutin.</p></div>
+  <div class="feature-item"><span>📊</span><h3>Dashboard & Analitik</h3><p>Laporan penjualan, stok, dan performa tim siap diakses real-time.</p></div>
+  <div class="feature-item"><span>🔔</span><h3>Notifikasi & Reminder</h3><p>Update otomatis ke WhatsApp atau email untuk setiap aktivitas penting.</p></div>
+  <div class="feature-item"><span>📝</span><h3>Generate Dokumen Otomatis</h3><p>Laporan harian/mingguan/bulanan dan dokumen bisnis sederhana siap otomatis.</p></div>
+  <div class="feature-item"><span>🤝</span><h3>Integrasi Sistem Eksisting</h3><p>Terhubung dengan POS, Google Sheet, e-commerce, tanpa input manual dua kali.</p></div>
+  <div class="feature-item"><span>🛡️</span><h3>Keamanan & Akses Role-Based</h3><p>Setiap tim hanya bisa akses sesuai peran, data sensitif tetap aman.</p></div>
+  <div class="feature-item"><span>🌐</span><h3>Multi-Sektor Ready</h3><p>Cocok untuk F&B, toko online, kantor, jasa, pendidikan, dan UMKM.</p></div>
 </div>
 </section>
 
@@ -171,8 +173,8 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 <div class="timeline">
   <div class="timeline-item left"><span>1️⃣</span><h3>Analisis</h3><p>Mempelajari alur bisnis dan kebutuhan klien.</p></div>
   <div class="timeline-item right"><span>2️⃣</span><h3>Desain</h3><p>Membuat workflow otomatis sesuai kebutuhan.</p></div>
-  <div class="timeline-item left"><span>3️⃣</span><h3>Implementasi</h3><p>Instalasi dan konfigurasi sistem.</p></div>
-  <div class="timeline-item right"><span>4️⃣</span><h3>Monitoring</h3><p>Memastikan sistem berjalan lancar dan melakukan update jika perlu.</p></div>
+  <div class="timeline-item left"><span>3️⃣</span><h3>Implementasi</h3><p>Instalasi dan konfigurasi sistem di bisnis klien.</p></div>
+  <div class="timeline-item right"><span>4️⃣</span><h3>Monitoring</h3><p>Memastikan sistem berjalan lancar dan update jika perlu.</p></div>
 </div>
 </section>
 
@@ -181,8 +183,8 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 <h2>Contoh Implementasi</h2>
 <p class="subtitle">Contoh nyata otomatisasi di bisnis klien.</p>
 <div class="implement-items">
-  <div class="implement-item"><span>🍔</span><h3>F&B</h3><p>Otomatis stok bahan, integrasi order online, laporan harian siap.</p></div>
-  <div class="implement-item"><span>🛒</span><h3>Toko Online</h3><p>Update produk otomatis, notifikasi order, laporan harian dan bulanan.</p></div>
+  <div class="implement-item"><span>🍔</span><h3>F&B</h3><p>Stok bahan otomatis, integrasi order online, laporan harian siap.</p></div>
+  <div class="implement-item"><span>🛒</span><h3>Toko Online</h3><p>Update produk otomatis, notifikasi order, laporan harian & bulanan.</p></div>
   <div class="implement-item"><span>🏢</span><h3>Kantor</h3><p>Workflow dokumen, absensi, reminder meeting otomatis.</p></div>
 </div>
 </section>
@@ -197,7 +199,7 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 </div>
 <div class="faq-item">
 <h3>Apakah bisa untuk semua sektor?</h3>
-<p>Ya, semua sektor dari F&B, toko online, kantor hingga manufaktur.</p>
+<p>Ya, semua sektor dari F&B, toko online, kantor, manufaktur, jasa, pendidikan, dan UMKM.</p>
 </div>
 <div class="faq-item">
 <h3>Apakah butuh tim IT sendiri?</h3>
@@ -238,9 +240,7 @@ hamburger.addEventListener('click', ()=>{ navLinks.classList.toggle('active'); }
 
 // Close menu on nav link click
 const navLinksItems = document.querySelectorAll('.nav-links li a');
-navLinksItems.forEach(link => {
-  link.addEventListener('click', ()=>{ navLinks.classList.remove('active'); });
-});
+navLinksItems.forEach(link => { link.addEventListener('click', ()=>{ navLinks.classList.remove('active'); }); });
 
 // FAQ toggle
 const faqItems = document.querySelectorAll('.faq-item');
