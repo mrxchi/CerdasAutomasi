@@ -76,9 +76,20 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 @media(max-width:768px){
   .hero h1 { font-size:2rem; }
   .hero p { font-size:1rem; }
-  .timeline::before { left:20px; }
-  .timeline-item { width:100%; text-align:left !important; padding-left:3rem; padding-right:1rem; margin-bottom:2rem; }
+
+  /* Timeline mobile: ubah jadi list vertikal */
+  .timeline::before { left:20px; height:100%; }
+  .timeline-item {
+    width:100% !important;
+    text-align:left !important;
+    flex-direction:row !important;
+    padding-left:3rem;
+    padding-right:1rem;
+    margin-bottom:2rem;
+  }
+  .timeline-item.left, .timeline-item.right { left:0 !important; }
 }
+
 </style>
 </head>
 <body>
