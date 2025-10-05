@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CerdasAutomasi - Automasi Pintar, Bisnis Efisien</title>
+<title>CerdasAutomasi - Biar Bisnismu Ga Ribet</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
-/* --- RESET & BASE --- */
 * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
 body { font-family:'Roboto', sans-serif; background:#ffffff; color:#333; line-height:1.6; }
 a { text-decoration:none; color:inherit; }
 button { cursor:pointer; }
 
-/* --- HEADER --- */
+/* HEADER */
 header { position:sticky; top:0; z-index:1000; background:#ffffff; padding:1rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:0.3s; border-bottom-left-radius:12px; border-bottom-right-radius:12px; }
 header.scrolled { background:#E3F2FD; }
 nav { display:flex; justify-content:space-between; align-items:center; }
@@ -20,14 +19,14 @@ nav ul { list-style:none; display:flex; gap:1.5rem; }
 nav ul li a { font-weight:500; transition:0.3s; }
 nav ul li a:hover { color:#1A73E8; }
 
-/* --- HERO --- */
-.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background: linear-gradient(120deg,#E3F2FD,#ffffff); border-radius:16px; margin:2rem auto; max-width:1200px; position:relative; }
+/* HERO */
+.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background: linear-gradient(120deg,#E3F2FD,#ffffff); border-radius:16px; margin:2rem auto; max-width:1200px; }
 .hero h1 { font-family:'Poppins', sans-serif; font-size:3rem; color:#1A73E8; margin-bottom:1rem; }
 .hero p { font-size:1.2rem; color:#5f6368; margin-bottom:2rem; max-width:700px; }
 .hero .btn { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; transition:0.3s; border:none; }
 .hero .btn:hover { background:#155ab6; transform:translateY(-3px); }
 
-/* --- FEATURES SECTION --- */
+/* FEATURES */
 .features-section { background:#F0F8FF; padding:4rem 2rem; }
 .features-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; }
 .features-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
@@ -38,11 +37,10 @@ nav ul li a:hover { color:#1A73E8; }
 .feature-item h3 { font-family:'Poppins', sans-serif; font-size:1.5rem; color:#1A73E8; margin-bottom:0.5rem; }
 .feature-item p { color:#5f6368; font-size:1rem; }
 
-/* --- TIMELINE SECTION --- */
+/* TIMELINE */
 .timeline-section { padding:4rem 2rem; max-width:1200px; margin:auto; }
 .timeline-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; }
 .timeline-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
-
 .timeline { position:relative; margin:auto; padding:2rem 0; }
 .timeline::before { content:""; position:absolute; top:0; left:50%; width:4px; height:100%; background:#1A73E8; transform:translateX(-50%); border-radius:2px; }
 .timeline-item { position:relative; width:50%; padding:2rem; }
@@ -52,12 +50,33 @@ nav ul li a:hover { color:#1A73E8; }
 .timeline-item h3 { font-family:'Poppins', sans-serif; color:#1A73E8; margin-bottom:0.5rem; }
 .timeline-item p { color:#5f6368; }
 
-/* --- CTA SECTION --- */
+/* IMPLEMENTASI */
+.implement-section { padding:4rem 2rem; background:#FFF9E6; }
+.implement-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#F57C00; font-size:2rem; margin-bottom:0.5rem; }
+.implement-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
+.implement-items { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:1200px; margin:auto; }
+.implement-item { background:#ffffff; flex:1 1 300px; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); transition:transform 0.3s; text-align:left; }
+.implement-item:hover { transform:translateY(-3px); }
+.implement-item span { font-size:2.5rem; margin-bottom:0.5rem; display:block; }
+.implement-item h3 { font-family:'Poppins', sans-serif; color:#F57C00; margin-bottom:0.5rem; }
+.implement-item p { color:#5f6368; font-size:1rem; }
+
+/* FAQ */
+.faq-section { padding:4rem 2rem; background:#E8F5E9; }
+.faq-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#2E7D32; font-size:2rem; margin-bottom:0.5rem; }
+.faq-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
+.faq-item { background:#ffffff; padding:1.5rem; border-radius:12px; margin-bottom:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.05); cursor:pointer; transition:0.3s; }
+.faq-item:hover { transform:translateY(-2px); }
+.faq-item h3 { font-family:'Poppins', sans-serif; color:#2E7D32; margin-bottom:0.5rem; }
+.faq-item p { display:none; color:#5f6368; margin-top:0.5rem; }
+.faq-item.active p { display:block; }
+
+/* CTA */
 .cta { background:#1A73E8; color:#fff; text-align:center; padding:4rem 2rem; border-radius:16px; margin:4rem 2rem; }
 .cta h2 { font-family:'Poppins', sans-serif; font-size:2rem; margin-bottom:1rem; }
 .cta p { margin-bottom:2rem; }
 
-/* --- CONTACT SECTION --- */
+/* CONTACT */
 .contact-section { padding:4rem 2rem; background:#F0F8FF; }
 .contact-section h2 { text-align:center; font-family:'Poppins', sans-serif; color:#1A73E8; font-size:2rem; margin-bottom:0.5rem; }
 .contact-section p.subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
@@ -66,30 +85,20 @@ nav ul li a:hover { color:#1A73E8; }
 .contact-form button { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; border:none; cursor:pointer; transition:0.3s; }
 .contact-form button:hover { background:#155ab6; transform:translateY(-2px); }
 
-/* --- FOOTER --- */
+/* FOOTER */
 footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius:12px 12px 0 0; color:#5f6368; }
 
-/* --- ANIMATIONS --- */
+/* ANIMASI */
 .fade-in { opacity:0; transform:translateY(20px); transition: all 0.8s ease-out; }
 .fade-in.visible { opacity:1; transform:translateY(0); }
 
 @media(max-width:768px){
   .hero h1 { font-size:2rem; }
   .hero p { font-size:1rem; }
-
-  /* Timeline mobile: ubah jadi list vertikal */
   .timeline::before { left:20px; height:100%; }
-  .timeline-item {
-    width:100% !important;
-    text-align:left !important;
-    flex-direction:row !important;
-    padding-left:3rem;
-    padding-right:1rem;
-    margin-bottom:2rem;
-  }
+  .timeline-item { width:100% !important; text-align:left !important; flex-direction:row !important; padding-left:3rem; padding-right:1rem; margin-bottom:2rem; }
   .timeline-item.left, .timeline-item.right { left:0 !important; }
 }
-
 </style>
 </head>
 <body>
@@ -102,6 +111,8 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
       <ul>
         <li><a href="#features">Fitur</a></li>
         <li><a href="#timeline">Cara Kerja</a></li>
+        <li><a href="#implement">Contoh</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Kontak</a></li>
       </ul>
     </nav>
@@ -110,50 +121,70 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 
 <!-- HERO -->
 <section class="hero fade-in">
-  <h1>Automasi Pintar, Bisnis Efisien 🤖</h1>
-  <p>Kami membantu bisnis Indonesia bekerja lebih cepat, rapi, dan efisien dengan workflow otomatis. Hemat waktu, minim kesalahan, fokus ke pertumbuhan.</p>
-  <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Mulai Demo Gratis ✨</button>
+  <h1>Biar Bisnismu Ga Ribet 🤖</h1>
+  <p>Pakai CerdasAutomasi, kerjaan yang biasanya bikin pusing bisa jalan sendiri. Hemat waktu, minim salah, dan tetap bisa ngopi santai ☕</p>
+  <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Coba Sekarang ✨</button>
 </section>
 
 <!-- FEATURES -->
 <section id="features" class="features-section">
-  <h2>Fitur Unggulan 🚀</h2>
-  <p class="subtitle">Workflow otomatis cerdas untuk berbagai kebutuhan bisnis</p>
+  <h2>Fitur Keren Kami 🚀</h2>
+  <p class="subtitle">Biar bisnis lancar, kerjaan otomatis, kamu bisa santai</p>
   <div class="features">
-    <div class="feature-item fade-in"><span>📄</span><h3>Automasi Laporan</h3><p>Laporan otomatis dikirim ke email/WhatsApp setiap hari.</p></div>
-    <div class="feature-item fade-in"><span>📊</span><h3>Dashboard Real-Time</h3><p>Visualisasi data bisnis & KPI secara real-time.</p></div>
-    <div class="feature-item fade-in"><span>🔔</span><h3>Notifikasi Pintar</h3><p>Reminder otomatis untuk pembayaran, stok, & jadwal penting.</p></div>
-    <div class="feature-item fade-in"><span>⚙️</span><h3>Integrasi Multi-Platform</h3><p>Menyatukan tools, POS, spreadsheet, dan software lain.</p></div>
-    <div class="feature-item fade-in"><span>🛠️</span><h3>Maintenance & Support</h3><p>Pantauan & update rutin agar workflow selalu lancar.</p></div>
+    <div class="feature-item fade-in"><span>📄</span><h3>Laporan Otomatis</h3><p>Laporan dikirim tiap hari tanpa kamu harus ketik satu-satu.</p></div>
+    <div class="feature-item fade-in"><span>📊</span><h3>Dashboard Real-Time</h3><p>Semua data penting terlihat langsung, ga perlu nunggu laporan manual.</p></div>
+    <div class="feature-item fade-in"><span>🔔</span><h3>Notifikasi Pintar</h3><p>Stok habis? Tagihan menumpuk? Sistem kasih tahu langsung!</p></div>
+    <div class="feature-item fade-in"><span>⚙️</span><h3>Integrasi Multi-Tools</h3><pPOS, spreadsheet, dan software lain bisa nyambung semua.</p></div>
+    <div class="feature-item fade-in"><span>🛠️</span><h3>Support & Maintenance</h3><p>Kami pantau & update sistem supaya selalu lancar.</p></div>
   </div>
 </section>
 
 <!-- TIMELINE -->
 <section id="timeline" class="timeline-section">
   <h2>Cara Kerja 🔄</h2>
-  <p class="subtitle">4 langkah mudah untuk workflow otomatis</p>
+  <p class="subtitle">Cuma 4 langkah, bisnismu auto jalan sendiri</p>
   <div class="timeline">
-    <div class="timeline-item left fade-in"><span>📝</span><h3>Konsultasi & Audit</h3><p>Analisis kebutuhan bisnis & workflow.</p></div>
-    <div class="timeline-item right fade-in"><span>⚙️</span><h3>Setup Workflow</h3><p>Integrasi tools & sistem sesuai bisnis.</p></div>
-    <div class="timeline-item left fade-in"><span>🚀</span><h3>Automasi Jalan</h3><p>Proses berjalan otomatis & real-time.</p></div>
-    <div class="timeline-item right fade-in"><span>💡</span><h3>Maintenance</h3><p>Pantauan rutin, update & troubleshooting.</p></div>
+    <div class="timeline-item left fade-in"><span>📝</span><h3>Konsultasi</h3><p>Kita ngobrol santai, cek apa yang dibutuhin bisnis kamu.</p></div>
+    <div class="timeline-item right fade-in"><span>⚙️</span><h3>Setup Workflow</h3><p>Sistem diatur sesuai kebutuhan, tanpa ribet.</p></div>
+    <div class="timeline-item left fade-in"><span>🚀</span><h3>Automasi Jalan</h3><p>Kerjaan yang biasanya bikin pusing sekarang jalan sendiri.</p></div>
+    <div class="timeline-item right fade-in"><span>💡</span><h3>Maintenance</h3><p>Update rutin, kalau ada error langsung beresin. Ga perlu panik 😎</p></div>
   </div>
+</section>
+
+<!-- IMPLEMENTASI -->
+<section id="implement" class="implement-section">
+  <h2>Contoh Implementasi 💼</h2>
+  <p class="subtitle">Lihat bagaimana CerdasAutomasi bantu bisnis nyata</p>
+  <div class="implement-items">
+    <div class="implement-item fade-in"><span>🍔</span><h3>Restoran & F&B</h3><p>Stok bahan otomatis update, reminder order supplier, laporan penjualan otomatis tiap hari. Bosnya bisa tidur nyenyak 😴</p></div>
+    <div class="implement-item fade-in"><span>🛒</span><h3>Toko Online</h3><p>Update status order otomatis, kirim invoice via WhatsApp, dashboard penjualan realtime. No drama lagi 😎</p></div>
+    <div class="implement-item fade-in"><span>🏢</span><h3>Perusahaan / Kantor</h3><p>Automasi approval dokumen, reminder meeting & deadlines, integrasi tools internal. Jadi semua kerjaan ga numpuk.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <h2>FAQ ❓</h2>
+  <p class="subtitle">Pertanyaan yang sering muncul (dan jawaban yang ga bikin pusing)</p>
+  <div class="faq-item"><h3>Apakah semua workflow bisa otomatis?</h3><p>Kebanyakan bisa, tapi ada beberapa hal yang perlu setup manual awal. Tenang, kita bantu kok 😉</p></div>
+  <div class="faq-item"><h3>Perlu skill IT ga buat pakai ini?</h3><p>Nggak perlu sama sekali! Santai aja, kita buat semuanya mudah dan siap pakai.</p></div>
+  <div class="faq-item"><h3>Apakah aman data saya?</h3><p>Data kamu aman, tersimpan dengan enkripsi & hanya bisa diakses pihak berwenang.</p></div>
 </section>
 
 <!-- CTA -->
 <section class="cta fade-in">
-  <h2>Siap Meningkatkan Efisiensi Bisnis Anda?</h2>
-  <p>Mulai workflow otomatis pertama Anda sekarang! Hemat waktu, minim kesalahan, fokus ke pertumbuhan.</p>
+  <h2>Siap Biar Bisnismu Ga Ribet?</h2>
+  <p>Mulai workflow otomatis pertama kamu sekarang! Hemat waktu, minim salah, fokus ke ngopi ☕</p>
   <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hubungi Kami ✨</button>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
   <h2>Kontak Kami 📩</h2>
-  <p class="subtitle">Kirim pesan atau request demo workflow gratis sekarang</p>
+  <p class="subtitle">Tanya-tanya, minta demo, atau sekedar ngobrol santai</p>
   <div class="contact-form fade-in">
     <form>
-      <input type="text" name="name" placeholder="Nama Anda" required>
+      <input type="text" name="name" placeholder="Nama Kamu" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="text" name="company" placeholder="Nama Perusahaan / Bisnis" required>
       <textarea name="message" placeholder="Pesan / Kebutuhan Workflow" rows="5" required></textarea>
@@ -168,15 +199,12 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 </footer>
 
 <script>
-// Fade-in animation on scroll
+// Fade-in on scroll
 const faders = document.querySelectorAll('.fade-in');
 const appearOptions = { threshold:0.3 };
 const appearOnScroll = new IntersectionObserver(function(entries, observer){
   entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
   });
 }, appearOptions);
 faders.forEach(fader => appearOnScroll.observe(fader));
@@ -186,6 +214,12 @@ window.addEventListener('scroll', () => {
   const header = document.getElementById('header');
   if(window.scrollY > 50){ header.classList.add('scrolled'); } 
   else { header.classList.remove('scrolled'); }
+});
+
+// FAQ toggle
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  item.addEventListener('click', () => { item.classList.toggle('active'); });
 });
 </script>
 
