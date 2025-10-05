@@ -6,64 +6,81 @@
 <title>CerdasAutomasi - Automasi Pintar, Bisnis Efisien</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Roboto', sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
-  a { text-decoration:none; color:inherit; }
-  img { max-width:100%; display:block; border-radius:12px; }
+/* --- BASE RESET --- */
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family: 'Roboto', sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; }
 
-  /* HEADER */
-  header { background:#fff; padding:1rem 2rem; box-shadow:0 2px 8px rgba(0,0,0,0.08); border-radius:0 0 12px 12px; }
-  nav { display:flex; justify-content:space-between; align-items:center; }
-  nav ul { list-style:none; display:flex; gap:1.5rem; }
-  nav ul li a { font-weight:500; transition:0.3s; }
-  nav ul li a:hover { color:#4285F4; }
+/* --- HEADER --- */
+header { position:sticky; top:0; z-index:1000; background:#fff; padding:1rem 2rem; box-shadow:0 2px 12px rgba(0,0,0,0.08); border-radius:0 0 12px 12px; transition:0.3s; }
+header.scrolled { background:#E8F0FE; }
+nav { display:flex; justify-content:space-between; align-items:center; }
+nav ul { list-style:none; display:flex; gap:1.5rem; }
+nav ul li a { font-weight:500; transition:0.3s; }
+nav ul li a:hover { color:#1A73E8; }
 
-  /* HERO */
-  .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background:#E8F0FE; border-radius:16px; margin:2rem auto; max-width:1200px; }
-  .hero h1 { font-family:'Poppins', sans-serif; font-size:3rem; color:#1A73E8; margin-bottom:1rem; }
-  .hero p { font-size:1.2rem; color:#5f6368; margin-bottom:2rem; max-width:700px; }
-  .hero .btn { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; transition:0.3s; }
-  .hero .btn:hover { background:#155ab6; }
+/* --- HERO --- */
+.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background:#E8F0FE; border-radius:16px; margin:2rem auto; max-width:1200px; position:relative; overflow:hidden; }
+.hero h1 { font-family:'Poppins', sans-serif; font-size:3rem; color:#1A73E8; margin-bottom:1rem; }
+.hero p { font-size:1.2rem; color:#5f6368; margin-bottom:2rem; max-width:700px; }
+.hero .btn { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; transition:0.3s; border:none; }
+.hero .btn:hover { background:#155ab6; transform:translateY(-3px); }
 
-  /* SECTION HEADINGS */
-  section { padding:4rem 2rem; }
-  h2 { font-family:'Poppins', sans-serif; font-size:2rem; color:#1A73E8; margin-bottom:1rem; text-align:center; }
-  .subtitle { text-align:center; color:#5f6368; margin-bottom:3rem; }
+/* --- FEATURES / ICON SECTIONS --- */
+.features { display:flex; flex-wrap:wrap; justify-content:space-around; gap:2rem; max-width:1200px; margin:auto; }
+.feature-item { background:#fff; flex:1 1 250px; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.08); text-align:center; transition:0.3s; }
+.feature-item:hover { transform:translateY(-5px); }
+.feature-item span { font-size:3rem; display:block; margin-bottom:1rem; }
+.feature-item h3 { font-family:'Poppins', sans-serif; font-size:1.5rem; color:#1A73E8; margin-bottom:0.5rem; }
+.feature-item p { color:#5f6368; }
 
-  /* SERVICES CARDS */
-  .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; max-width:1200px; margin:auto; }
-  .card { background:#fff; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.08); text-align:center; transition:transform 0.3s; display:flex; flex-direction:column; align-items:center; }
-  .card:hover { transform:translateY(-6px); }
-  .card img { width:100px; margin-bottom:1rem; }
-  .card h3 { font-family:'Poppins', sans-serif; font-size:1.5rem; color:#1A73E8; margin-bottom:0.8rem; }
-  .card p { color:#5f6368; font-size:1rem; }
+/* --- TIMELINE / HOW IT WORKS --- */
+.timeline { max-width:900px; margin:4rem auto; position:relative; }
+.timeline::before { content:""; position:absolute; top:0; left:50%; width:4px; height:100%; background:#1A73E8; transform:translateX(-50%); border-radius:2px; }
+.timeline-item { display:flex; width:50%; padding:2rem; position:relative; transition:0.3s; }
+.timeline-item.left { left:0; flex-direction:row-reverse; text-align:right; }
+.timeline-item.right { left:50%; text-align:left; }
+.timeline-item span { font-size:2rem; margin-bottom:0.5rem; display:block; }
+.timeline-item h3 { font-family:'Poppins', sans-serif; color:#1A73E8; margin-bottom:0.5rem; }
+.timeline-item p { color:#5f6368; }
 
-  /* CONTACT FORM */
-  .contact-form { max-width:600px; margin:auto; background:#fff; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
-  .contact-form input, .contact-form textarea { width:100%; padding:0.8rem; margin-bottom:1rem; border-radius:12px; border:1px solid #ccc; font-size:1rem; }
-  .contact-form button { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; border:none; cursor:pointer; transition:0.3s; }
-  .contact-form button:hover { background:#155ab6; }
+/* --- CTA FULL WIDTH --- */
+.cta { background:#1A73E8; color:#fff; text-align:center; padding:4rem 2rem; border-radius:16px; margin:4rem 0; }
+.cta h2 { font-family:'Poppins', sans-serif; font-size:2rem; margin-bottom:1rem; }
+.cta p { margin-bottom:2rem; }
 
-  /* FOOTER */
-  footer { background:#E8F0FE; text-align:center; padding:2rem 1rem; border-radius:12px 12px 0 0; color:#5f6368; }
+/* --- CONTACT --- */
+.contact-form { max-width:600px; margin:auto; background:#fff; padding:2rem; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.contact-form input, .contact-form textarea { width:100%; padding:0.8rem; margin-bottom:1rem; border-radius:12px; border:1px solid #ccc; font-size:1rem; }
+.contact-form button { padding:0.8rem 2rem; background:#1A73E8; color:#fff; border-radius:12px; font-weight:600; border:none; cursor:pointer; transition:0.3s; }
+.contact-form button:hover { background:#155ab6; transform:translateY(-2px); }
 
-  /* RESPONSIVE */
-  @media(max-width:768px){
-    .hero h1 { font-size:2rem; }
-    .hero p { font-size:1rem; }
-  }
+/* --- FOOTER --- */
+footer { background:#E8F0FE; text-align:center; padding:2rem 1rem; border-radius:12px 12px 0 0; color:#5f6368; }
+
+/* --- ANIMATION --- */
+.fade-in { opacity:0; transform:translateY(20px); transition: all 0.8s ease-out; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:768px){
+  .hero h1 { font-size:2rem; }
+  .hero p { font-size:1rem; }
+  .timeline::before { left:20px; }
+  .timeline-item { width:100%; flex-direction:row !important; text-align:left !important; padding-left:3rem; padding-right:1rem; margin-bottom:2rem; }
+}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header>
+<header id="header">
   <div class="container">
     <nav>
-      <div class="logo"><a href="#"><strong>CerdasAutomasi</strong></a></div>
+      <div class="logo"><strong>🤖 CerdasAutomasi</strong></div>
       <ul>
-        <li><a href="#services">Layanan</a></li>
-        <li><a href="#how">Cara Kerja</a></li>
+        <li><a href="#features">Fitur</a></li>
+        <li><a href="#timeline">Cara Kerja</a></li>
         <li><a href="#contact">Kontak</a></li>
       </ul>
     </nav>
@@ -72,81 +89,85 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Automasi Pintar, Bisnis Efisien</h1>
+  <h1>Automasi Pintar, Bisnis Efisien 🤖</h1>
   <p>Kami membantu bisnis Indonesia bekerja lebih cepat, rapi, dan efisien dengan workflow otomatis. Hemat waktu, minim kesalahan, fokus ke pertumbuhan.</p>
-  <a href="#contact" class="btn">Mulai Demo Gratis</a>
+  <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Mulai Demo Gratis ✨</button>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <h2>Layanan Kami</h2>
-  <p class="subtitle">Paket automasi fleksibel untuk kebutuhan bisnis Anda</p>
-  <div class="services">
-    <div class="card">
-      <img src="https://source.unsplash.com/100x100/?workflow,automation" alt="Starter">
-      <h3>Starter</h3>
-      <p>1 workflow sederhana (Form → WhatsApp / Email). Hemat waktu & minim error.</p>
-    </div>
-    <div class="card">
-      <img src="https://source.unsplash.com/100x100/?dashboard,analytics" alt="Pro">
-      <h3>Pro</h3>
-      <p>2–3 workflow + dashboard laporan + dokumentasi. Laporan real-time & integrasi platform.</p>
-    </div>
-    <div class="card">
-      <img src="https://source.unsplash.com/100x100/?enterprise,business" alt="Enterprise">
-      <h3>Enterprise</h3>
-      <p>Automasi kompleks lintas sistem + maintenance 1 bulan. Sistem penuh & support langsung.</p>
-    </div>
+<!-- FEATURES -->
+<section id="features">
+  <h2>Fitur Unggulan 🚀</h2>
+  <p class="subtitle">Workflow otomatis cerdas untuk berbagai kebutuhan bisnis</p>
+  <div class="features">
+    <div class="feature-item fade-in"><span>📄</span><h3>Automasi Laporan</h3><p>Laporan otomatis dikirim ke email/WhatsApp setiap hari.</p></div>
+    <div class="feature-item fade-in"><span>📊</span><h3>Dashboard Real-Time</h3><p>Visualisasi data bisnis & KPI secara real-time.</p></div>
+    <div class="feature-item fade-in"><span>🔔</span><h3>Notifikasi Pintar</h3><p>Reminder otomatis untuk pembayaran, stok, & jadwal penting.</p></div>
+    <div class="feature-item fade-in"><span>⚙️</span><h3>Integrasi Multi-Platform</h3><p>Menyatukan tools, POS, spreadsheet, dan software lain.</p></div>
+    <div class="feature-item fade-in"><span>🛠️</span><h3>Maintenance & Support</h3><p>Pantauan & update rutin agar workflow selalu lancar.</p></div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <h2>Cara Kerja</h2>
-  <p class="subtitle">Hanya 4 langkah sederhana untuk workflow otomatis</p>
-  <div class="services">
-    <div class="card">
-      <img src="https://source.unsplash.com/100x100/?consulting" alt="Audit">
-      <h3>1. Konsultasi & Audit</h3>
-      <p>Analisis kebutuhan dan workflow bisnis Anda.</p>
-    </div>
-    <div class="card">
-      <img src="https://source.unsplash.com/100x100/?setup,tools" alt="Setup">
-      <h3>2. Setup Workflow</h3>
-      <p>Integrasi tools & sistem sesuai kebutuhan bisnis.</p>
-    </div>
-    <div class="card">
-      <img src="https://source.unsplash.com/100x100/?automation,technology" alt="Automate">
-      <h3>3. Automasi Jalan</h3>
-      <p>Proses berjalan otomatis & real-time.</p>
-    </div>
-    <div class="card">
-      <img src="https://source.unsplash.com/100x100/?support,maintenance" alt="Maintenance">
-      <h3>4. Maintenance</h3>
-      <p>Pantauan rutin, update & troubleshooting sistem Anda.</p>
-    </div>
+<!-- TIMELINE / HOW IT WORKS -->
+<section id="timeline">
+  <h2>Cara Kerja 🔄</h2>
+  <p class="subtitle">4 langkah mudah untuk workflow otomatis</p>
+  <div class="timeline">
+    <div class="timeline-item left fade-in"><span>📝</span><h3>Konsultasi & Audit</h3><p>Analisis kebutuhan bisnis & workflow.</p></div>
+    <div class="timeline-item right fade-in"><span>⚙️</span><h3>Setup Workflow</h3><p>Integrasi tools & sistem sesuai bisnis.</p></div>
+    <div class="timeline-item left fade-in"><span>🚀</span><h3>Automasi Jalan</h3><p>Proses berjalan otomatis & real-time.</p></div>
+    <div class="timeline-item right fade-in"><span>💡</span><h3>Maintenance</h3><p>Pantauan rutin, update & troubleshooting.</p></div>
   </div>
+</section>
+
+<!-- CTA FULL WIDTH -->
+<section class="cta fade-in">
+  <h2>Siap Meningkatkan Efisiensi Bisnis Anda?</h2>
+  <p>Mulai workflow otomatis pertama Anda sekarang! Hemat waktu, minim kesalahan, fokus ke pertumbuhan.</p>
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hubungi Kami ✨</button>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2>Kontak Kami</h2>
-  <p class="subtitle">Siap untuk workflow otomatis pertama Anda? Hubungi kami sekarang!</p>
-  <div class="contact-form">
+  <h2>Kontak Kami 📩</h2>
+  <p class="subtitle">Kirim pesan atau request demo workflow gratis sekarang</p>
+  <div class="contact-form fade-in">
     <form>
       <input type="text" name="name" placeholder="Nama Anda" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="text" name="company" placeholder="Nama Perusahaan / Bisnis" required>
       <textarea name="message" placeholder="Pesan / Kebutuhan Workflow" rows="5" required></textarea>
-      <button type="submit">Kirim Pesan</button>
+      <button type="submit">Kirim Pesan ✨</button>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2025 CerdasAutomasi. Semua hak dilindungi.</p>
+  <p>&copy; 2025 🤖 CerdasAutomasi. Semua hak dilindungi.</p>
 </footer>
+
+<script>
+// Smooth fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.3 };
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      appearOnScroll.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+
+faders.forEach(fader => appearOnScroll.observe(fader));
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if(window.scrollY > 50){ header.classList.add('scrolled'); } 
+  else { header.classList.remove('scrolled'); }
+});
+</script>
 
 </body>
 </html>
