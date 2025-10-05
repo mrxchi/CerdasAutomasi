@@ -114,6 +114,30 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
   transform:translateY(-3px) scale(1.05);
   box-shadow:0 8px 16px rgba(0,0,0,0.15);
 }
+  /* NAV BASE */
+nav { display:flex; justify-content:space-between; align-items:center; position:relative; }
+.nav-links { list-style:none; display:flex; gap:1.5rem; }
+.nav-links li a { font-weight:500; transition:0.3s; }
+.nav-links li a:hover { color:#1A73E8; }
+
+/* HAMBURGER */
+.hamburger { display:none; font-size:2rem; cursor:pointer; }
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links { 
+    position:fixed; top:0; left:0; width:100%; height:100%; 
+    background:rgba(255,255,255,0.97); 
+    flex-direction:column; justify-content:center; align-items:center; 
+    gap:2rem; font-size:1.5rem;
+    transform:translateX(-100%); 
+    transition:transform 0.3s ease-in-out; 
+    z-index:9999;
+  }
+  .nav-links.active { transform:translateX(0); }
+  .hamburger { display:block; color:#1A73E8; }
+}
+
 
 </style>
 </head>
@@ -122,16 +146,18 @@ footer { background:#E3F2FD; text-align:center; padding:2rem 1rem; border-radius
 <!-- HEADER -->
 <header id="header">
   <div class="container">
-    <nav>
-      <div class="logo"><strong>🤖 CerdasAutomasi</strong></div>
-      <ul>
-        <li><a href="#features">Fitur</a></li>
-        <li><a href="#timeline">Cara Kerja</a></li>
-        <li><a href="#implement">Contoh</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
-    </nav>
+<nav>
+  <div class="logo"><strong>🤖 CerdasAutomasi</strong></div>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#features">Fitur</a></li>
+    <li><a href="#timeline">Cara Kerja</a></li>
+    <li><a href="#implement">Contoh</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
   </div>
 </header>
 
@@ -238,6 +264,16 @@ faqItems.forEach(item => {
   item.addEventListener('click', () => { item.classList.toggle('active'); });
 });
 </script>
+  <script>
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+</script>
+
 
 </body>
 </html>
